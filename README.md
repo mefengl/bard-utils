@@ -63,6 +63,15 @@ function getLastResponseText() {
 };
 ```
 
+```js
+function send(text) {
+  const textarea = getTextarea();
+  textarea.value = text;
+  textarea.dispatchEvent(new Event('input'));
+  getSubmitButton().click();
+};
+```
+
 ## Contributing
 
 Contributions, issues and feature requests are welcome!
