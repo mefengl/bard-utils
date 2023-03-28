@@ -58,8 +58,25 @@ function getLastResponse() {
 
 ```js
 function getLastResponseText() {
-  const lastResponse = getLastResponse();
-  return lastResponse.textContent;
+  const lastPrompt = this.getLastPrompt();
+  if (!lastPrompt) return "";
+  const lastPromptText = lastPrompt.textContent;
+  return lastPromptText;
+};
+```
+
+```js
+function getLastPrompt() {
+  const promptElements = document.querySelectorAll('.query-text');
+  const lastPrompt = promptElements[promptElements.length - 1];
+  return lastPrompt;
+};
+```
+
+```js
+function getLastPromptText() {
+  const lastPrompt = getLastPrompt();
+  return lastPrompt.textContent;
 };
 ```
 
